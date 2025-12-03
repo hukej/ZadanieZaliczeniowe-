@@ -47,9 +47,44 @@
         />
 
     <EditText
+        android:id="@+id/editTextDlugoscHasla"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ile znaków?"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxLitery"
+        android:text="Małe i wielkie Litery"
+        android:checked="true"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxCyfry"
+        android:text="Cyfry"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxZnaki"
+        android:text="Znaki specjalne"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonGeneruj"
+        android:text="Generuj hasło"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonZatwierdz"
+        android:text="Zatwierdź"
+        android:layout_gravity="center"/>
+
 
 
 </LinearLayout>
