@@ -2,6 +2,7 @@ package com.example.zadaniezaliczeniowe;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -52,6 +53,20 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStanowisko.setAdapter(adapter);
 
+        buttonZatwierdz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generujHaslo();
+            }
+        });
+
+        buttonZatwierdz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zatwierdzDane();
+            }
+        });
+
     }
 
     void generujHaslo(){
@@ -87,5 +102,14 @@ public class MainActivity extends AppCompatActivity {
         wygenerowaneHaslo = haslo.toString();
 
         new AlertDialog.Builder(this).setTitle("Wygenerowane hasło").setMessage(wygenerowaneHaslo).setPositiveButton("ok",null).show();
+    }
+    void zatwierdzDane(){
+        String imie = editImie.getText().toString();
+        String nazwisko = editNazwisko.getText().toString();
+        String stanowisko = spinnerStanowisko.getSelectedItem().toString();
+
+        String wiadomosc = "Dane:\n"+"Imie:\t"+imie+"\n"+"Nazwisko:\t"+nazwisko+"\n"+"Stanowisko:\t"+stanowisko+"\n"+"Hasło:\t"+wygenerowaneHaslo+"\n";
+
+        new AlertDialog.Builder(this).setTitle("Potwierdzenie danych").setMessage(wiadomosc).setPositiveButton("ok",null).show();
     }
 }
