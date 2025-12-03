@@ -1,5 +1,6 @@
 package com.example.zadaniezaliczeniowe;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     void generujHaslo(){
         String maleLitery="abcdefghijklmnopqrstuvwxyz";
-        String mduzeLitery="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String duzeLitery="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String cyfry = "01234566789";
         String znakiSpecjalne="!@#$%^&*()_-+=";
 
@@ -72,5 +73,19 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i<dlugosc; i++){
             haslo.append(maleLitery.charAt(random.nextInt(maleLitery.length())));
         }
+
+        if(checkLitery.isChecked()&& dlugosc>=1){
+            haslo.setCharAt(0, duzeLitery.charAt(random.nextInt(duzeLitery.length())));
+        }
+        if(checkCyfry.isChecked()&& dlugosc>=2){
+            haslo.setCharAt(1, cyfry.charAt(random.nextInt(cyfry.length())));
+        }
+        if(checkZnaki.isChecked()&& dlugosc>=3){
+            haslo.setCharAt(2, znakiSpecjalne.charAt(random.nextInt(znakiSpecjalne.length())));
+        }
+
+        wygenerowaneHaslo = haslo.toString();
+
+        new AlertDialog.Builder(this).setTitle("Wygenerowane hasło").setMessage(wygenerowaneHaslo).setPositiveButton("ok",null).show();
     }
 }
