@@ -18,11 +18,13 @@
          />
 
     <EditText
+        android:id="@+id/editTextImie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="imie"/>
 
     <EditText
+        android:id="@+id/editTextNazwisko"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nazwisko"/>
