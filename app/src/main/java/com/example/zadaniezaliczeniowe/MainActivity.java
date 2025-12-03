@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText editImie, editNazwisko, editDlugoscHasla;
@@ -49,5 +51,26 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStanowisko.setAdapter(adapter);
 
+    }
+
+    void generujHaslo(){
+        String maleLitery="abcdefghijklmnopqrstuvwxyz";
+        String mduzeLitery="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String cyfry = "01234566789";
+        String znakiSpecjalne="!@#$%^&*()_-+=";
+
+        StringBuilder haslo = new StringBuilder();
+        Random random=new Random();
+
+        int dlugosc;
+        try{
+            dlugosc = Integer.parseInt(editDlugoscHasla.getText().toString());
+        }catch (NumberFormatException exeption){
+            dlugosc=8;
+        }
+
+        for(int i = 0; i<dlugosc; i++){
+            haslo.append(maleLitery.charAt(random.nextInt(maleLitery.length())));
+        }
     }
 }
