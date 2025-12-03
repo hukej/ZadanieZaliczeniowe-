@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:padding="15dp">
+    android:padding="20dp"
+    android:background="#B0C4DE">
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,17 +76,22 @@
         />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonGeneruj"
         android:text="Generuj hasło"
-        android:layout_gravity="center"/>
+        android:layout_gravity="end"
+        android:background="#4682B4"
+        android:textColor="@color/white"/>
     <Button
+        android:style="?android:attr/buttonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonZatwierdz"
         android:text="Zatwierdź"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:background="#4682B4"
+        android:textColor="@color/white"/>
 
 
 
